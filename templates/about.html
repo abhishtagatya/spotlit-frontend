@@ -1,0 +1,50 @@
+{% extends "app.html" %}
+{% block css %}
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='home.css') }}"/>
+{% endblock %}
+{% block title %}About Us{% endblock %}
+{% block content %}
+
+<div class="container-fluid custom-container">
+  <!-- introduction -->
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title custom-card-title" id="introduction">About SpotLit</h5>
+      <p class="card-text">SpotLit is a music suggester web application that runs on the <a href="https://beta.developer.spotify.com/documentation/web-api/">Spotify API</a> using <a href="http://spotipy.readthedocs.io/en/latest/">Spotipy</a> Python library and hopes to follow the <a href="https://beta.developer.spotify.com/terms/">Developer Terms and Conditions</a>. SpotLit acts as the recommendator for Tracks, Albums, Artists and Playlists for people to share and discover new forms and variety of music each day. How we recommend music is done by our algorithm, although its not perfect right now, we hope to improve as time goes on.</p><br>
+      <h5>How Is Our Recommendation Algorythm?</h5>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScml4XkxAsUClEOe0Ri4ShLU8nQZdfvTYnvALIorhCvyRPa7Q/viewform?usp=sf_link" class="btn btn-lg btn-block" role="button">Fill Out Form</a>
+    </div>
+  </div>
+
+  <!-- related -->
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title custom-card-title" id="expertise">Apps By Us</h5>
+    </div>
+  </div>
+
+  <!-- Contribute -->
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title custom-card-title" id="contact">Contribute To SpotLit</h5>
+      <p class="card-text">We are glad that you care about SpotLit and our developers, there are many ways you can express it too!</p><br>
+
+      <h5 class="card-title">Donation</h5>
+        <p class="card-text">Donating to SpotLit would be a huge help for us to keep us alive, motivated and well!</p>
+        <a href="{{ url_for('donation') }}" class="btn btn-lg btn-block" role="button">Donate To SpotLit</a><br>
+
+      <h5 class="card-title">Developer</h5>
+        <p class="card-text">If you are a developer, we would love to have you on board. Collab with us!</p>
+        <a href="#" class="btn btn-lg btn-block" role="button" aria-disabled="true">Collaborate on SpotLit</a><br>
+
+      <h5 class="card-title">Share Us</h5>
+        <p class="card-text">We feel the need to expand and thats where you come along! Share us with the world!</p>
+        <a href="https://twitter.com/share?url=http://spotlit.id&amp;text=Find%20Your%20Vibe%20with%20SpotLit&amp;hashtags=spotlit" class="btn btn-lg btn-block" role="button">Share SpotLit</a><br>
+
+      <h5 class="card-title">Share Yours</h5>
+        <p class="card-text">We would love your content to be featured on our app, be awesome and share your music with the world!</p>
+        <a href="{{ url_for('recommend') }}" class="btn btn-lg btn-block" role="button">Share Your Music</a><br>
+    </div>
+  </div>
+</div>
+{% endblock %}

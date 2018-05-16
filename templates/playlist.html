@@ -1,0 +1,53 @@
+{% extends "app.html" %}
+{% block css %}
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='home.css') }}"/>
+{% endblock %}
+{% block title %}Track Mixology{% endblock %}
+{% block content %}
+<div class="row no-gutters">
+  <div class="col">
+    <div class="container-fluid custom-container">
+        <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{ playlist['image'] }}" alt="Card image cap" draggable="false">
+        <div class="card-body">
+          <h5 class="card-title">{{ playlist['name'] }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Created by <a href="https://open.spotify.com/user/{{playlist['owner']}}" class="text-muted">{{ owner }}</a></h6>
+          <p class="text-muted">Followed by {{ playlist['followers'] }} People</p><br>
+          <a class="btn btn-blue btn-lg btn-block" href="{{ url_for('playlist') }}" role="button">Shuffle</a>
+          <a class="btn btn-blue btn-lg btn-block" href="{{ playlist['spotify_url'] }}" target="_blank" role="button">Listen</a>
+        </div>
+        </div>
+    </div>
+
+  </div>
+  <div class="col">
+    <div class="container-fluid custom-container">
+      <div class="container">
+      <div class="list-group custom-list-group">
+        <button class="btn list-group-item list-group-item-action active-blue"><h6 class="custom-h6 text-light">Playlist Preview</h6></button>
+        <ul class="list-group list-group-flush">
+          {% for song, artist, url in playlist['track'] %}
+          <li class="list-group-item"><a href="{{ url }}" class="custom-list-link">{{loop.index}}. {{song}} - {{artist}}</a></li>
+          {% endfor %}
+        </ul>
+      <a class="btn list-group-item list-group-item-action active-blue" target="_blank" href="{{ playlist['spotify_url'] }}">More at Spotify</a>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    Share Your Mix
+  </div>
+  <div class="container custom-container">
+    <div class="card-body">
+      <h5 class="card-title">Share your Playlist with the World</h5>
+      <p class="card-text">Got a sweet mix up on your spotify account? Why not share it with us!</p>
+      <a href="{{ url_for('recommend') }}" class="btn btn-lg btn-block">Share My Mix</a>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

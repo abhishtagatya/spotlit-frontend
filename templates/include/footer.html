@@ -1,0 +1,16 @@
+<!-- Footer from tutorialzine.com -->
+
+<footer id="myFooter">
+  <div class="container">
+    <p class="footer-copyright">© 2018 by <a href="https://abhishtagatya.github.io" class="text-muted">Gatya</a></p>
+  </div>
+  <div class="footer-social">
+    <h5 class="text-muted custom-h5">Share Spotlit</h5>
+    {% for social, url in [
+      ('fa-twitter', 'https://twitter.com/share?url=http://spotlit.id&amp;text=Find%20Your%20Vibe%20with%20SpotLit&amp;hashtags=spotlit'),
+      ('fa-whatsapp', 'whatsapp://send?text=Check Out spotlit.id and find new music everyday'),
+      ('fa-facebook', 'https://www.facebook.com/sharer/sharer.php?u=http%3A//spotlit.id')] %}
+    <a href="{{url}}" target="_blank" class="social-icons"><i class="fa {{social}} fa-color"></i></a>
+    {% endfor %}
+  </div>
+</footer>

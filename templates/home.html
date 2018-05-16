@@ -1,0 +1,51 @@
+{% extends "app.html" %}
+{% block css %}
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='home.css') }}"/>
+{% endblock %}
+{% block title %}Find Your Vibe{% endblock %}
+{% block content %}
+
+{% if alert %}
+  {% include 'include/alert.html' %}
+{% endif %}
+
+<div class="row no-gutters">
+  <div class="col">
+    <div class="container custom-container">
+        <div class="card" style="width: 18rem;">
+        {% if track['preview'] != None %}
+        <audio id="player" src="{{ track['preview'] }}" autoplay></audio>
+        {% else %}
+        <audio id="player" src="{{ url_for('static', filename='sound/404.mp3') }}" autoplay></audio>
+        {% endif %}
+        <button class="img-btn" onclick="togglePlay()">
+          <img class="card-img-top custom-img-card" src="{{ track['album'] }}" alt="Card image cap" draggable="false">
+        </button>
+        <div class="card-body">
+          <h5 class="card-title">{{track['name']}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{track['artist']}}</h6><br>
+          <a class="btn btn-blue btn-lg btn-block" href="{{ url_for('home') }}" role="button">Shuffle</a>
+          <a class="btn btn-blue btn-lg btn-block" href="{{track['spotify_url']}}" target="_blank" role="button">Listen</a>
+        </div>
+        </div>
+    </div>
+
+  </div>
+  <div class="col">
+    <div class="container custom-container">
+      <div class="container">
+      <div class="list-group custom-list-group">
+        <button class="btn list-group-item list-group-item-action active-blue" name="selectedGenre" value=""><h6 class="custom-h6 text-light">In The Mood For ...</h6></button>
+        <form method="post" action="{{ url_for('home') }}">
+          {% for genre in ["all", "blues", "country", "electronic", "rock", "pop", "hiphop", "jazz", "classical", "indie"] %}
+        <button type="submit" class="btn list-group-item list-group-item-action" name="selectedGenre" value="{{genre}}">{{genre|capitalize}}</button>
+          {% endfor %}
+      </form>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

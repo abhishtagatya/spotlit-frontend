@@ -1,0 +1,20 @@
+{% extends "app.html" %}
+{% block css %}
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='home.css') }}" />
+{% endblock %}
+{% block title %}Donation{% endblock %}
+{% block content %}
+
+<div class="container-fluid custom-container">
+  <!-- introduction -->
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title custom-card-title" id="introduction">Donate To SpotLit</h5>
+      <p class="card-text">Dear Wonderful People who opens this page, donation can be done with three different methods. Please choose the easiest and most convenient method to help out. Thank You :)</p>
+      <a class="btn list-group-item list-group-item-action" target="_blank" href="">PayPal</a>
+      <a class="btn list-group-item list-group-item-action" target="_blank" href="https://www.patreon.com/bePatron?c=1754302">Patreon</a>
+      <a class="btn list-group-item list-group-item-action" target="_blank" href="https://www.kickstarter.com/">Kickstarter</a>
+    </div>
+  </div>
+  </div>
+  {% endblock %}

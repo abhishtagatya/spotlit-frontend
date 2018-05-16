@@ -1,0 +1,43 @@
+{% extends "app.html" %}
+{% block css %}
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='home.css') }}" />
+{% endblock %}
+{% block title %}Top Charts{% endblock %}
+{% block content %}
+<div class="row no-gutters">
+  {% for chart in charts %}
+  <div class="col">
+    <div class="container-fluid custom-container">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{ chart['image'] }}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{ chart['name'] }}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          {% for song, artist, url in chart['track'] %}
+          <li class="list-group-item"><a href="{{ url }}" class="custom-list-link">{{loop.index}}. {{song}} - {{artist}}</a></li>
+          {% endfor %}
+        </ul>
+        <div class="card-body">
+          <a class="btn btn-lg btn-block" href="{{ chart['spotify_url'] }}" target="_blank" role="button">Listen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  <div class="card">
+    <div class="card-header">
+      Recommend Your Track
+    </div>
+    <div class="container custom-container">
+      <div class="card-body">
+        <h5 class="card-title">Share your Music with the World</h5>
+        <p class="card-text">Oh What? You're favorite song is not on the list? Recommend us your favorite song and share with the world</p>
+        <a href="{{ url_for('recommend') }}" class="btn btn-lg btn-block">Share My Song</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

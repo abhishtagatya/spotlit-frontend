@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover new music everyday and share yours too with SpotLit. Find Your Vibe.">
+
+    <link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}" sizes="16x16" type="image/png">
+    <!-- Apple Web Apps -->
+    <meta name="apple-mobile-web-app-title" content="SpotLit">
+    <!-- Apple Icons -->
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple/apple_touch_logo.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='img/apple/apple_touch_logo_180.png') }}">
+    <link rel="apple-touch-icon" sizes="167x167" href="{{ url_for('static', filename='img/apple/apple_touch_logo_167.png') }}">
+    <!-- Apple Splash Screen -->
+    <link rel="apple-touch-startup-image" href="{{ url_for('static', filename='img/apple/apple_launch_ipx.png') }}">
+
+    <!--Import Google Icon & Font-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Import css-->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='master.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}"/>
+    {% block css %}
+    {% endblock %}
+    <title>SpotLit | {% block title %}{% endblock %}</title>
+</head>
+<body>
+    {% include 'include/nav.html' %}
+
+    {% if overlay %}
+    <div id="overlay" onclick="overlayOff()">
+      <div class="overlay-content">
+        <h1 class="text-light">Are You Loving SpotLit?</h1>
+        <p class="text-light">Keep us alive and well by donating to our developers!</p>
+        <form action="{{ url_for('donation') }}">
+          <button type="submit" class="btn btn-light btn-lg text-primary">Donate To SpotLit</button>
+        </form>
+      </div>
+    </div>
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% include 'include/footer.html' %}
+
+    {% block javascript %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='master.js') }}"></script>
+    {% endblock %}
+</body>
+</html>

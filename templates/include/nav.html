@@ -1,0 +1,14 @@
+  <nav class="navbar navbar-expand-lg navbar-dark custom-bg-nav">
+  <a class="navbar-brand custom-title" href="#">SpotLit</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active text-light" href="{{ url_for('home') }}">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link text-light" href="{{ url_for('chart') }}">Chart</a>
+      <a class="nav-item nav-link text-light" href="{{ url_for('playlist') }}">Playlist</a>
+      <a class="nav-item nav-link text-light" href="{{ url_for('about') }}">About</a>
+    </div>
+  </div>
+</nav>

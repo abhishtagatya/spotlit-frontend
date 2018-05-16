@@ -1,0 +1,42 @@
+{% extends 'app.html' %}
+{% block css %}
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='home.css') }}" />
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='form_req.css') }}" />
+{% endblock %}
+{% block title %}Recommend Yours{% endblock %}
+{% block content %}
+<div class="container form-card-container">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title" title="* are required">Share Your Music Simply</h5>
+      <form method="post">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Spotify Username *</label>
+          <input class="form-control" placeholder="spotifyusername" required name="username">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput2">Email Address *</label>
+          <input type="email" class="form-control" placeholder="name@example.com" required name="email">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">What To Share? *</label>
+          <select class="form-control" id="exampleFormControlSelect1" required name="type">
+      {% for option in ['track', 'album', 'artist', 'playlist'] %}
+        <option value="{{option}}">{{option|capitalize}}</option>
+      {% endfor %}
+    </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput2">Track / Playlist / Artist Name *</label>
+          <input class="form-control" placeholder="The Beatles" required name="brand">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput2">Spotify Link To Share</label>
+          <input type="url" class="form-control" placeholder="https://open.spotify.com/..." name="url">
+        </div>
+        <button type="submit" class="btn custom-form-btn text-primary btn-lg btn-block">Submit Form</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
