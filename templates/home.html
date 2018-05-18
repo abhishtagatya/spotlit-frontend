@@ -14,9 +14,9 @@
     <div class="container custom-container">
         <div class="card" style="width: 18rem;">
         {% if track['preview'] != None %}
-        <audio id="player" src="{{ track['preview'] }}" autoplay></audio>
+        <audio id="player" src="{{ track['preview'] }}"></audio>
         {% else %}
-        <audio id="player" src="{{ url_for('static', filename='sound/404.mp3') }}" autoplay></audio>
+        <audio id="player" src="{{ url_for('static', filename='sound/404.mp3') }}"></audio>
         {% endif %}
         <button class="img-btn" onclick="togglePlay()">
           <img class="card-img-top custom-img-card" src="{{ track['album'] }}" alt="Card image cap" draggable="false">

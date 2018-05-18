@@ -2,15 +2,15 @@
 {% block css %}
 <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='home.css') }}" />
 {% endblock %}
-{% block title %}Donation{% endblock %}
+{% block title %}Internal Server Error{% endblock %}
 {% block content %}
 
 <div id="overlay">
   <div class="overlay-content">
-    <h1 class="text-light">404 Error</h1>
-    <p class="text-light">Sorry, but it seems there's nothing here!</p>
+    <h1 class="text-light">Whoops Somethings Not Right</h1>
+    <p class="text-light">Sorry for your inconvenience, Please try reloading</p>
     <form action="{{ url_for('home') }}">
-      <button type="submit" class="btn btn-light btn-lg text-primary">Go Home</button>
+      <button type="submit" class="btn btn-light btn-lg text-primary">Reload Page</button>
     </form>
   </div>
 </div>
